@@ -2,7 +2,7 @@
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from .base import Base,session
+from base import Base,session
 
 class Teacher(Base):
     __tablename__ = "teachers"
