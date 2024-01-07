@@ -9,3 +9,7 @@ class School(Base):
 
     id=Column(Integer, primary_key=True)
     name =Column(String)
+
+    def __repr__(self):
+        return f"School {self.id}: " \
+            + f"{self.name}, " 
