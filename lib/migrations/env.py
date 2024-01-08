@@ -19,6 +19,9 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from models.base import Base
+from models.Teacher import Base
+from models.Class import Base
+from models.Student import Base
 target_metadata = Base.metadata
 
 
