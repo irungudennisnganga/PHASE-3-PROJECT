@@ -8,7 +8,8 @@ class Teacher(Base):
     __tablename__ = "teachers"
 
     id= Column(Integer , primary_key=True)
-    name=Column(String)
+    first_name=Column(String)
+    last_name=Column(String)
     subject=Column(String)
     email =Column(String)
     
@@ -17,5 +18,7 @@ class Teacher(Base):
     
     def __repr__(self):
         return f"Teacher {self.id}: " \
-            + f"{self.name}, " \
-            + f"Email {self.email}"
+            + f"{self.first_name}, " \
+            + f"{self.last_name}" \
+            +  f"Subject {self.subject}" \
+            +  f"Email {self.email}" 
