@@ -13,10 +13,10 @@ class Student(Base):
     email =Column(String)
     date_of_admission=Column(Date)
     
-    # class_id=Column(Integer ,ForeignKey("classes.id") )
+
     
     classes=relationship("Class", back_populates="student")
-
+    # classes = relationship("Class", lazy="dynamic")
     def __repr__(self):
         return f"Student {self.id}: " \
             + f"{self.first_name}, " \
