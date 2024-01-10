@@ -19,7 +19,7 @@ teachers = [
         last_name=fake.last_name(),
         subject=fake.word(),
         email=fake.email()
-    ) for _ in range(5)
+    ) for _ in range(0)
 ]
 
 # Create some classes, assigning teachers randomly
@@ -41,7 +41,7 @@ students = [
         email=fake.email(),
         date_of_admission=fake.date_between(start_date="-1y", end_date="today"),
         # classes=[random.choice(classes)]
-    ) for _ in range(10)
+    ) for _ in range(0)
 ]
 
 # Create some classes, assigning teachers randomly
@@ -51,7 +51,7 @@ classes = [
         # level=random.choice(["Beginner", "Intermediate", "Advanced"]),
         teacher=random.choice(teachers),
         student=random.choice(students)
-    ) for i in range(4)
+    ) for i in range(0)
 ]
 
 

@@ -18,8 +18,8 @@ class Teacher(Base):
     
     def __repr__(self):
         return f"Teacher {self.id}: " \
-            + f"{self.first_name}, " \
-            + f"{self.last_name}" \
+            + f"First name{self.first_name}, " \
+            + f"Last name {self.last_name}" \
             +  f"Subject {self.subject}" \
             +  f"Email {self.email}" 
             
@@ -29,9 +29,20 @@ class Teacher(Base):
     def full_name(self):
         return f"{self.first_name} {self.last_name}"   
     
-    def create_email(self):
-        return f"{self.first_name}{self.last_name}@gmail.com"     
-            
+    # def create_email(self):
+    #     return f"{self.first_name}{self.last_name}@gmail.com"   
+      
+    def create_teacher(self,first_name,last_name,subject):
+       new=Teacher(
+           first_name=first_name,
+           last_name=last_name,
+           subject=subject,
+           email=f"{first_name}{last_name}.teacher@schoolname.com"
+       )  
+       session.add(new)       
+       session.commit()
+    
+    # this method should return students that a teacher teaches via the relationship
     def class_teaching(self):
         
         # return self.classes.student       
