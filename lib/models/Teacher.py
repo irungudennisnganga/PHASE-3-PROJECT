@@ -11,7 +11,7 @@ class Teacher(Base):
     first_name=Column(String)
     last_name=Column(String)
     subject=Column(String)
-    email =Column(String)
+    email =Column(String,)
     
     
     classes=relationship("Class" ,back_populates="teacher")
@@ -22,3 +22,17 @@ class Teacher(Base):
             + f"{self.last_name}" \
             +  f"Subject {self.subject}" \
             +  f"Email {self.email}" 
+            
+    def all_teachers(self):
+        return session.query(Teacher).all()        
+        
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"   
+    
+    def create_email(self):
+        return f"{self.first_name}{self.last_name}@gmail.com"     
+            
+    def class_teaching(self):
+        
+        # return self.classes.student       
+        pass

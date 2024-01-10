@@ -3,7 +3,7 @@
 from sqlalchemy import Column, Integer, String,ForeignKey,Date
 from sqlalchemy.orm import relationship
 from .base import Base,session
-
+from datetime import datetime
 class Student(Base):
     __tablename__ = "students"
 
@@ -23,3 +23,22 @@ class Student(Base):
             + f"{self.last_name}" \
             + f"Email {self.email}" \
             + f"Date of admission {self.date_of_admission}"       
+            
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"   
+    def create_student(self,first_name,last_name,email,date_of_admission):
+        date_of_admission = datetime.strptime(date_of_admission, "%Y-%m-%d").date()
+        new=Student(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            date_of_admission=date_of_admission
+        )
+        session.add(new)
+        session.commit()
+    def create_email(self):
+        return f"{self.first_name}{self.last_name}@gmail.com"     
+     
+    def all_students(self):
+        return session.query(Student).all()
+        

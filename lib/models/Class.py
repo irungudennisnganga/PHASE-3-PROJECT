@@ -9,7 +9,7 @@ class Class(Base):
 
     id=Column(Integer, primary_key=True)
     name=Column(String)
-    level=Column(String)
+    
     teachers_id=Column(Integer ,ForeignKey("teachers.id"))
     students_id=Column(Integer, ForeignKey("students.id"))
     
