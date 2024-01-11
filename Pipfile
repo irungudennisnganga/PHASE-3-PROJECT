@@ -5,8 +5,9 @@ name = "pypi"
 
 [packages]
 click = "*"
-alchemy = "*"
 faker = "*"
+sqlalchemy = "*"
+alembic = "*"
 
 [dev-packages]
 

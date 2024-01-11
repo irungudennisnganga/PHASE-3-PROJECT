@@ -22,6 +22,7 @@ teachers = [
     ) for _ in range(0)
 ]
 
+
 # Create some classes, assigning teachers randomly
 # classes = [
 #     Class(

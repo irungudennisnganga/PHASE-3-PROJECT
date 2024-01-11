@@ -59,7 +59,7 @@ all_methods.add_command(new_class)
 
 @click.command(help="Filter by class")
 def filter_by_class():
-    click.echo(classes.filter_by_class(1))
+    click.echo(classes.filter_by_class('103'))
 
 all_methods.add_command(filter_by_class)
 

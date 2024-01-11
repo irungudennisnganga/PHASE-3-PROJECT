@@ -22,11 +22,10 @@ class Class(Base):
             
     # query student based on a specific  class they belong ( include filtering)
     def filter_by_class(self,class_name):
-        return session.query(Class).filter_by(teachers_id = class_name).all()
+        return session.query(Class).filter_by(name = class_name).all()
     
     # create a new instance of the class relationship to add a student to class and identify the teacher and also give the student a class
     def create_class(self,name,teachers_id,students_id):
-        
         new=Class(
             name=name,
             teachers_id=teachers_id,
@@ -34,5 +33,9 @@ class Class(Base):
         )
         session.add(new)
         session.commit()
-    # 
+    
+    # delete method 
+    
+    def delete_class(self):
+        pass
             
