@@ -13,6 +13,7 @@ def all_methods():
     pass
 
 # STUDENTS METHODS
+
 @click.command(help='Find all students')
 def students():
     click.echo(student.all_students())
@@ -48,6 +49,7 @@ all_methods.add_command(del_student)
   
     
 # TEACHERS METHODS
+
 @click.command(help="All teacher")
 def teachers():
     click.echo(teacher.all_teachers())
@@ -81,6 +83,7 @@ all_methods.add_command(del_teacher)
 
 
 # CLASS METHODS
+
 @click.command(help="New class")
 def new_class():
     classes.create_class('103',2,4)
