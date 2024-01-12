@@ -26,12 +26,7 @@ class Teacher(Base):
     def all_teachers(self):
         return session.query(Teacher).all()        
         
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"   
-    
-    # def create_email(self):
-    #     return f"{self.first_name}{self.last_name}@gmail.com"   
-      
+
     def create_teacher(self,first_name,last_name,subject):
        new=Teacher(
            first_name=first_name,
@@ -42,8 +37,19 @@ class Teacher(Base):
        session.add(new)       
        session.commit()
     
-    # this method should return students that a teacher teaches via the relationship
-    def class_teaching(self):
+    def update_teacher(self,id,first_name,last_name,subject):
+        session.query(Teacher).filter_by(id = id).update({
+            Teacher.first_name :first_name,
+            Teacher.last_name:last_name,
+            Teacher.subject: subject,
+            Teacher.email:f"{first_name}{last_name}.teacher@schoolname.com",
+            
+        })
+    
+        session.commit()
+    
         
-        # return self.classes.student       
-        pass
+    def delete_teacher(self,id):
+        remove_teacher=  session.query(Teacher).filter_by(id =id).first()
+        session.delete(remove_teacher)
+        session.commit()

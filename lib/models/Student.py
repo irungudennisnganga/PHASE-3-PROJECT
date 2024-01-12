@@ -25,8 +25,6 @@ class Student(Base):
             + f"Email {self.email}" \
             + f"Date of admission {self.date_of_admission}"       
             
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"   
     
     def create_student(self,first_name,last_name,date_of_admission):
         date_of_admission = datetime.strptime(date_of_admission, "%Y-%m-%d").date()
@@ -41,4 +39,21 @@ class Student(Base):
     
     def all_students(self):
         return session.query(Student).all()
+    
+    def update_student(self,id,first_name,last_name,date_of_admission):
+        pass
+        date_of_admission = datetime.strptime(date_of_admission, "%Y-%m-%d").date()
+        session.query(Student).filter_by(id = id).update({
+            Student.first_name :first_name,
+            Student.last_name:last_name,
+            Student.email:f"{first_name}{last_name}.student@schoolname.com",
+            Student.date_of_admission:date_of_admission
+        })
+    
+        session.commit()
+    
         
+    def delete_student(self,id):
+        remove_student=  session.query(Student).filter_by(id =id).first()
+        session.delete(remove_student)
+        session.commit()
